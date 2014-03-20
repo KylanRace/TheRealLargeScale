@@ -8,6 +8,7 @@
  *  to d to standard output.
  *
  ****************************************************************************/
+//Cant find where the nullException is
 import java.io.*;
 import java.io.FileInputStream;
 import java.io.BufferedReader;
