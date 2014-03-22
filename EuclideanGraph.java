@@ -13,8 +13,8 @@ public class EuclideanGraph {
     // for portability
     private final static String NEWLINE = System.getProperty("line.separator");
 
-    public int V;            // number of vertices
-    public int E;            // number of edges
+    private int V;            // number of vertices
+    private int E;            // number of edges
     private Node[]  adj;      // adjacency lists
     private Point[] points;   // points in the plane
     

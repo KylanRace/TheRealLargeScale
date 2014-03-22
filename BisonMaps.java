@@ -25,10 +25,10 @@ public class BisonMaps {
         EuclideanGraph G = new EuclideanGraph(graphin);
         System.err.println("Done reading the graph " + args[0]);
         System.out.println();
-        System.out.println("Possible Starting and Destination Points:");
+        /*System.out.println("Possible Starting and Destination Points:");
         BufferedReader in = null;
     	try {
-    		in = new BufferedReader(new FileReader("UserViewBuildings.txt"));
+    		in = new BufferedReader(new FileReader("/Users/Kylan Race/Desktop/okokok/KylanBlahTake2/Sourcey/UserViewBuildings"));
     		String content;
     		while((content = in.readLine()) != null)
     		{
@@ -46,13 +46,13 @@ public class BisonMaps {
     	}
     	System.out.println();
     	System.out.println("Please choose a starting point and a destination by selecting two numbers pressing enter betweenboth.");
-        System.out.println();
+        System.out.println();*/
     	// read in the s-d pairs from standard input
-        Dijkstra blah = new Dijkstra(G);
+        Dijkstra dijkstra = new Dijkstra(G);
         while(!StdIn.isEmpty()) {
             int s = StdIn.readInt();
             int d = StdIn.readInt();
-            blah.showPath(s, d);
+            dijkstra.showPath(s, d);
             System.out.println();
         }
     }

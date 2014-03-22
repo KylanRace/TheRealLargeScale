@@ -151,6 +151,7 @@ class In {
        catch (IOException e) { e.printStackTrace(); }
    }
 
+
    // This method is just here to test the class
    public static void main (String args[]) {
       In in;
@@ -188,3 +189,4 @@ class In {
    }
 
 }
+
