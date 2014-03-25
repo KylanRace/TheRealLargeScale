@@ -20,11 +20,13 @@ public class BisonMaps {
     	
     	
     	    	//TEST
+		//took off extensions... silly problem easily fixed
         // read in the graph from a file
     	In graphin = new In(args[0]);
         EuclideanGraph G = new EuclideanGraph(graphin);
         System.err.println("Done reading the graph " + args[0]);
         System.out.println();
+		//Extra to output list of possible destinations for user
         /*System.out.println("Possible Starting and Destination Points:");
         BufferedReader in = null;
     	try {
