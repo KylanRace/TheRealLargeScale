@@ -1623,7 +1623,7 @@ public class DataConnector {
 	
 	System.out.println();
 	
-	query2 = "SELECT \"SID\",\"NAME\" FROM \"NodeLayer\" WHERE \"ComputerLab\" > 0 ORDER BY \"SID\"";
+	query2 = "SELECT \"SID\" FROM \"NodeLayer\" WHERE \"ComputerLab\" > 0 ORDER BY \"SID\"";
 	
 	stmt3 = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
 	
@@ -1745,312 +1745,62 @@ public class DataConnector {
 	
 	public static void displayBuildings() throws SQLException {
 	
-	conn = DriverManager.getConnection(url, props);
+		conn = DriverManager.getConnection(url, props);
+		
+		// build the query and get result from result set
 	
-	String query = "SELECT \"NAME\" FROM \"NodeDescription\" WHERE \"Type\" = 0 ORDER BY \"SID\"";
+		String query = "SELECT * FROM \"NodeDescription\" WHERE \"Type\" = 0";
 	
-	Statement stmt2 = conn.createStatement();
+		// create statement and execute query
 	
-	ResultSet rs2 = stmt2.executeQuery(query);
+		Statement stmt2 = conn.createStatement();
+		//
+		ResultSet rs2 = stmt2.executeQuery(query);  // return a result set
 	
-	String query2 = "SELECT \"X\", \"Y\" FROM \"NodeLocation\" ORDER BY \"SID\"";
+		//step through all records in the result set and print contents
 	
-	Statement stmt3 = conn.createStatement();
-	
-	ResultSet rs3 = stmt3.executeQuery(query2);
-	
-	System.out.println("Building Name\t\t\t\t\t\t\t\t\tX\t\tY");
-	
-	while(rs2.next() && rs3.next()) {
-	
-	String name = rs2.getString("NAME");
-	
-	String x = rs3.getString("X");
-	
-	String y = rs3.getString("Y");
-	
-	System.out.println(name + x + '\t' + y);
-	
-	}
-	
-	System.out.println();
-	
-	conn.close();
+		while(rs2.next()) {
+			//
+			String sid = rs2.getString("SID");
+			//
+			String nam = rs2.getString("Name");
+			//
+			System.out.println(sid + nam);
+		}
 	
 	}
 	
 	public static void displayResources() throws SQLException {
-	
-	conn = DriverManager.getConnection(url, props);
-	
-	String query = "SELECT \"NAME\" FROM \"NodeDescription\" ORDER BY \"SID\"";
-	
-	Statement stmt = conn.createStatement();
-	
-	ResultSet rs = stmt.executeQuery(query);
-	
-	String query2 = "SELECT \"SID\" FROM \"NodeLayer\" WHERE \"ATM\" != 0";
-	
-	Statement stmt2 = conn.createStatement();
-	
-	ResultSet rs2 = stmt2.executeQuery(query2);
-	
-	System.out.println("Resource\t\t\tBuilding");
-	
-	int counter = 0;
-	
-	while(rs.next() && rs2.next()) {
-	
-	String name = rs.getString("NAME");
-	
-	String SID = rs2.getString("SID");
-	
-	while (Integer.parseInt(SID) != counter) {
-	
-	rs.next();
-	
-	counter++;
-	
-	}
-	
-	System.out.println("ATM\t\t\t\t" + name);
-	
-	counter++;
-	
-	}
-	
-	query = "SELECT \"NAME\" FROM \"NodeDescription\" ORDER BY \"SID\"";
-	
-	stmt = conn.createStatement();
-	
-	rs = stmt.executeQuery(query);
-	
-	query2 = "SELECT \"SID\" FROM \"NodeLayer\" WHERE \"Vending\" != 0";
-	
-	stmt2 = conn.createStatement();
-	
-	rs2 = stmt2.executeQuery(query2);
-	
-	counter = 0;
-	
-	while(rs.next() && rs2.next()) {
-	
-	String name = rs.getString("NAME");
-	
-	String SID = rs2.getString("SID");
-	
-	while (Integer.parseInt(SID) != counter) {
-	
-	rs.next();
-	
-	counter++;
-	
-	}
-	
-	System.out.println("Vending Machine\t\t\t" + name);
-	
-	counter++;
-	
-	}
-	
-	query = "SELECT \"NAME\" FROM \"NodeDescription\" ORDER BY \"SID\"";
-	
-	stmt = conn.createStatement();
-	
-	rs = stmt.executeQuery(query);
-	
-	query2 = "SELECT \"SID\" FROM \"NodeLayer\" WHERE \"RestRoom\" != 0";
-	
-	stmt2 = conn.createStatement();
-	
-	rs2 = stmt2.executeQuery(query2);
-	
-	counter = 0;
-	
-	while(rs.next() && rs2.next()) {
-	
-	String name = rs.getString("NAME");
-	
-	String SID = rs2.getString("SID");
-	
-	while (Integer.parseInt(SID) != counter) {
-	
-	rs.next();
-	
-	counter++;
-	
-	}
-	
-	System.out.println("Rest Room\t\t\t" + name);
-	
-	counter++;
-	
-	}
-	
-	query = "SELECT \"NAME\" FROM \"NodeDescription\" ORDER BY \"SID\"";
-	
-	stmt = conn.createStatement();
-	
-	rs = stmt.executeQuery(query);
-	
-	query2 = "SELECT \"SID\" FROM \"NodeLayer\" WHERE \"PublicPhone\" != 0";
-	
-	stmt2 = conn.createStatement();
-	
-	rs2 = stmt2.executeQuery(query2);
-	
-	counter = 0;
-	
-	while(rs.next() && rs2.next()) {
-	
-	String name = rs.getString("NAME");
-	
-	String SID = rs2.getString("SID");
-	
-	while (Integer.parseInt(SID) != counter) {
-	
-	rs.next();
-	
-	counter++;
-	
-	}
-	
-	System.out.println("Public Phone\t\t\t" + name);
-	
-	counter++;
-	
-	}
-	
-	query = "SELECT \"NAME\" FROM \"NodeDescription\" ORDER BY \"SID\"";
-	
-	stmt = conn.createStatement();
-	
-	rs = stmt.executeQuery(query);
-	
-	query2 = "SELECT \"SID\" FROM \"NodeLayer\" WHERE \"ComputerLab\" != 0";
-	
-	stmt2 = conn.createStatement();
-	
-	rs2 = stmt2.executeQuery(query2);
-	
-	counter = 0;
-	
-	while(rs.next() && rs2.next()) {
-	
-	String name = rs.getString("NAME");
-	
-	String SID = rs2.getString("SID");
-	
-	while (Integer.parseInt(SID) != counter) {
-	
-	rs.next();
-	
-	counter++;
-	
-	}
-	
-	System.out.println("ComputerLab\t\t\t" + name);
-	
-	counter++;
-	
-	}
-	
-	System.out.println("WiFi\t\t\t\tWiFi available everywhere through HOWARD (sometimes)");
-	
-	query = "SELECT \"NAME\" FROM \"NodeDescription\" ORDER BY \"SID\"";
-	
-	stmt = conn.createStatement();
-	
-	rs = stmt.executeQuery(query);
-	
-	query2 = "SELECT \"SID\" FROM \"NodeLayer\" WHERE \"Security\" != 0";
-	
-	stmt2 = conn.createStatement();
-	
-	rs2 = stmt2.executeQuery(query2);
-	
-	counter = 0;
-	
-	while(rs.next() && rs2.next()) {
-	
-	String name = rs.getString("NAME");
-	
-	String SID = rs2.getString("SID");
-	
-	while (Integer.parseInt(SID) != counter) {
-	
-	rs.next();
-	
-	counter++;
-	
-	}
-	
-	System.out.println("Security Phone\t\t\t" + name);
-	
-	counter++;
-	
-	}
-	
-	query = "SELECT \"NAME\" FROM \"NodeDescription\" ORDER BY \"SID\"";
-	
-	stmt = conn.createStatement();
-	
-	rs = stmt.executeQuery(query);
-	
-	query2 = "SELECT \"SID\" FROM \"NodeLayer\" WHERE \"BusStop\" != 0";
-	
-	stmt2 = conn.createStatement();
-	
-	rs2 = stmt2.executeQuery(query2);
-	
-	counter = 0;
-	
-	while(rs.next() && rs2.next()) {
-	
-	String name = rs.getString("NAME");
-	
-	String SID = rs2.getString("SID");
-	
-	while (Integer.parseInt(SID) != counter) {
-	
-	rs.next();
-	
-	counter++;
-	
-	}
-	
-	System.out.println("Shuttle Stop\t\t\t" + name);
-	
-	counter++;
-	
-	}
-	
-	System.out.println();
-	
-	conn.close();
-	
+		conn = DriverManager.getConnection(url, props);
+		System.out.println("SID     ATM     Vending     RestRoom     PublicPhone     ComputerLab     WiFi     Security     BusStop");
+		String query = "SELECT * FROM \"NodeLayer\"";
+		Statement stmt4 = conn.createStatement();
+		ResultSet rs4 = stmt4.executeQuery(query);
+		while(rs4.next()) {
+			String sid = rs4.getString("SID");
+			String atm = rs4.getString("ATM");
+			String ven = rs4.getString("Vending");
+			String res = rs4.getString("RestRoom");
+			String pub = rs4.getString("PublicPhone");
+			String com = rs4.getString("ComputerLab");
+			String wi = rs4.getString("WiFi");
+			String sec = rs4.getString("Security");
+			String bus = rs4.getString("BusStop");
+			System.out.println(sid+"        "+atm+"          "+ven+"          "+res+"              "+pub+"               "+com+"            "+wi+"          "+sec+"           "+bus);
+		}
 	}
 	
 	public static void showDepartments() throws SQLException {
 	
 	conn = DriverManager.getConnection(url, props);
 	
-	String query = "SELECT \"DepartmentName\",\"Building\" FROM \"DepartmentLocation\" ORDER BY \"DepartmentName\"";
-	
-	Statement stmt2 = conn.createStatement();
-	
-	ResultSet rs2 = stmt2.executeQuery(query);
-	
-	System.out.println("Department\t\t\t\t\t\t\t\t\tBuilding");
-	
-	while(rs2.next()) {
-	
-	String department = rs2.getString("DepartmentName");
-	
-	String building = rs2.getString("Building");
-	
-	System.out.println(department + building);
-	
+	String query = "SELECT * FROM \"DepartmentLocation\"";
+	Statement stmt3 = conn.createStatement();
+	ResultSet rs3 = stmt3.executeQuery(query);
+	while(rs3.next()) {
+		String sid = rs3.getString("Building");
+		String nam = rs3.getString("DepartmentName");
+		System.out.println(sid + nam);
 	}
 	
 	System.out.println();

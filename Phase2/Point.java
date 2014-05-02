@@ -24,6 +24,6 @@ public class Point {
     public double distanceTo(Point p) {
         double dx = this.x - p.x;
         double dy = this.y - p.y;
-        return Math.sqrt(dx*dx + dy*dy);
+        return (Math.sqrt(dx*dx + dy*dy))/9;
     }
 }
