@@ -1,3 +1,4 @@
+//Class for NodeDescription
 package com.example.model;
 
 public class NodeDescription {
@@ -13,7 +14,7 @@ public class NodeDescription {
 		Description = description;
 		Type = type;
 	}
-
+	//getters and setters for the column values
 	public int getSID() {
 		return SID;
 	}

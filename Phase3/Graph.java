@@ -1,3 +1,4 @@
+//Class for Graph
 package com.example.model;
 
 public class Graph {
@@ -9,7 +10,7 @@ public class Graph {
 		SID = sID;
 		DID = dID;
 	}
-
+	//getters and setters for the column values
 	public int getSID() {
 		return SID;
 	}

@@ -1,3 +1,4 @@
+//Class for NodeLayer
 package com.example.model;
 	
 public class NodeLayer {
@@ -22,7 +23,7 @@ public class NodeLayer {
 		Security = security;
 		BusStop = busstop;
 	}
-
+	//getters and setters for the column values
 	public int getSID() {
 		return SID;
 	}

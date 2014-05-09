@@ -1,3 +1,4 @@
+//Class for DepartmentLocation
 package com.example.model;
 
 public class DepartmentLocation {

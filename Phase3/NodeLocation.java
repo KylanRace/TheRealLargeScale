@@ -1,3 +1,4 @@
+//Class for NodeLocation
 package com.example.model;
 
 public class NodeLocation {
@@ -10,7 +11,7 @@ public class NodeLocation {
 		X = x;
 		Y = y;
 	}
-
+	//getters and setters for the column values
 	public int getSID() {
 		return SID;
 	}

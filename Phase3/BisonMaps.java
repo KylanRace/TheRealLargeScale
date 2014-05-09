@@ -27,6 +27,7 @@ public class BisonMaps extends HttpServlet {
 	private static Connection conn;
 	@Override
 	public void init() {
+		//Connect to my database
 		try {
 			Class.forName("org.postgresql.Driver");
 			url = "jdbc:postgresql://ec2-54-197-241-78.compute-1.amazonaws.com:5432/d1sp7uh9etk0jf";
@@ -40,13 +41,14 @@ public class BisonMaps extends HttpServlet {
 		catch (Exception e) {
 			System.out.println(e);
 		}
+		//put info from each database table into arrays
 		try {
 			String query = "SELECT COUNT(*) FROM \"DepartmentLocation\"";
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(query);
-			rs.next();
+			rs.next(); 
 			String k = rs.getString(1);
-			DepartmentL = new DepartmentLocation[Integer.parseInt(k)];
+			DepartmentL = new DepartmentLocation[Integer.parseInt(k)]; 
 			
 			String query1 = "SELECT * FROM \"DepartmentLocation\"";
 			Statement stmt1 = conn.createStatement();
@@ -56,7 +58,7 @@ public class BisonMaps extends HttpServlet {
 				if (rs1.next()) {
 					int sid = Integer.parseInt(rs1.getString("Building"));
 					String name = rs1.getString("DepartmentName");
-					DepartmentL[ok] = new DepartmentLocation(sid,name);
+					DepartmentL[ok] = new DepartmentLocation(sid,name); //array of table values
 				}
 			}
 			
@@ -78,7 +80,7 @@ public class BisonMaps extends HttpServlet {
 					GraphT[ok] = new Graph(sid,did);
 				}
 			}
-			
+			//same as before, used to put values from each table into an array
 			String query4 = "SELECT COUNT(*) FROM \"NodeDescription\"";
 			Statement stmt4 = conn.createStatement();
 			ResultSet rs4 = stmt4.executeQuery(query4);
@@ -91,7 +93,7 @@ public class BisonMaps extends HttpServlet {
 			ResultSet rs5 = stmt5.executeQuery(query5);
 			for (int ok = 0; ok < NodeD.length; ok++)
 			{
-				if (rs5.next()) {
+				if (rs5.next()) { //loop through all the values and add to the NodeD array
 					int sid = Integer.parseInt(rs5.getString("SID"));
 					String name = (rs5.getString("NAME"));
 					String des = (rs5.getString("Description"));
@@ -155,13 +157,13 @@ public class BisonMaps extends HttpServlet {
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
 	{
-		doGet(request, response);
+		doGet(request, response); //just used to call doget
 	}
 	
 	@SuppressWarnings("unchecked")
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
 	{
-		HttpSession session = request.getSession();
+		HttpSession session = request.getSession(); //start a session
 		
 		List<DepartmentLocation> DepartmentLs = (List<DepartmentLocation>)session.getAttribute("DepartmentLs");
 		if (DepartmentLs == null) //Add something if nothing is there
