@@ -1,0 +1,105 @@
+<!doctype html>
+<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
+<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on http://github.com/jonrohan -->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen"/>
+  <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/script.js"></script>
+
+  <title>Thereallargescale</title>
+  <meta name="description" content="Dr. Burge Large Scale git Repo">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <header>
+      <h1 class="title">Thereallargescale</h1>
+    </header>
+    <div id="container">
+      <p class="tagline">Dr. Burge Large Scale git Repo</p>
+      <div id="main" role="main">
+        <div class="download-bar">
+        <div class="inner">
+          <a href="https://github.com/KylanRace/TheRealLargeScale/tarball/master" class="download-button tar"><span>Download</span></a>
+          <a href="https://github.com/KylanRace/TheRealLargeScale/zipball/master" class="download-button zip"><span>Download</span></a>
+          <a href="https://github.com/KylanRace/TheRealLargeScale" class="code">View Thereallargescale on GitHub</a>
+        </div>
+        <span class="blc"></span><span class="trc"></span>
+        </div>
+        <article class="markdown-body">
+          <h1>
+<a name="welcome-to-the-real-large-scale" class="anchor" href="#welcome-to-the-real-large-scale"><span class="octicon octicon-link"></span></a>Welcome to The Real Large Scale</h1>
+
+<p>This consists of a a series of projects have prompted by Dr. Burge for Howard University's Large Scale Computing course. Each Project builds onto the previous one.</p>
+
+<h2>
+<a name="phase-1" class="anchor" href="#phase-1"><span class="octicon octicon-link"></span></a>Phase 1</h2>
+
+<p>For Phase 1 all that was necessary was to plot out all of the data points and use the already supplied code to find the shortest path from one point to another. This is done using Dijkstra's Algorithm.  The two files that was necessary to be made were a mapfile and an input file.  One file would have the possible building choices for starting locations and destinations, and the other file would contain the location (on a Cartesian graph) of all of the buildings and sidewalk stopping points on the map. The second file would also show how each point connected to each other.</p>
+
+<h3>
+<a name="problems-encountered" class="anchor" href="#problems-encountered"><span class="octicon octicon-link"></span></a>Problems Encountered</h3>
+
+<p>There weren't really any problems with this project.  It was rather straightforward.  IT was monotonous, but straightforward.  </p>
+
+<h2>
+<a name="phase-2" class="anchor" href="#phase-2"><span class="octicon octicon-link"></span></a>Phase 2</h2>
+
+<p>Phase 2 was meant to add some look to Phase 1 and add a few more features. Besides the "getDirections" that was in Phase 1, added now was a "findResources" (Takes you to various important resources available on campus), "showBuildings", "showResources", and "showDepartments"; the latter 3 being rather self explanatory.  Also added was a feature that showed the distance between any two points on the user's path, as well as the total distance traveled.  Along with this was added a display of the time taken between any two points and the total time.</p>
+
+<h3>
+<a name="problems-encountered-1" class="anchor" href="#problems-encountered-1"><span class="octicon octicon-link"></span></a>Problems Encountered</h3>
+
+<p>There were some problems that I ran into at first.  This varied from not being able to connect to my pgadmin database, to distances and times being greatly exaggerated, to a multitude of other small problems that were fixed after doing some research on them.  This meant a lot of Googling of errors.  However, most of my errors were solved by reading pgadmin's help manual and looking back at my notes on mySQL and php.  They actually really helped a lot.  In the end, I was able to get it fully working.</p>
+
+<h2>
+<a name="phase-3" class="anchor" href="#phase-3"><span class="octicon octicon-link"></span></a>Phase 3</h2>
+
+<p>Phase 3 was to update the look of the project even more, by putting it into a JavaServer Page.  Most of the functionality for the project had been done in phase 2, however there was still a good bit of work to do to get it working using the jsp.  All of the data from pgadmin would be added to a session and then utilized in the jsp.  Phase 3 would have everything outputted in nice neat tables.</p>
+
+<h3>
+<a name="problems-encountered-2" class="anchor" href="#problems-encountered-2"><span class="octicon octicon-link"></span></a>Problems Encountered</h3>
+
+<p>Phase 3 was definitely harder than the other phases.  This was mainly because this was newer to me than the skills needed for the other projects.  The hardest part of this project was actually getting the ForEach loop to work for me.  All the information was added to a session but to get the information to dynamically update inside the tables in the jsp, a loop needed to be used that would continuously insert the data.  However, no matter what was tried, the ForLoop would not work. It would never actually input the data as if the loop was just being skipped.  I tried various online and book sources, and I even contacted a couple of professor friends of mine from various Universities.  One of them even said, "I don't understand why it isn't working for you."  So without that loop working, the direction output and resource output pages couldn't be dynamically filled.  This loop would have also made the "show" jsp's a lot easier to populate, but I went ahead and put those in manually.  So the only thing having a problem is the connection to the outputs from the direction and resource servlets.  I'm still not sure as to why this loop doesn't work, and I will continue looking for it.</p>
+
+<h3>
+<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+
+<p>I am the primary author of these projects, however Alyssa Bullock (<a href="https://github.com/chunkeymonkey" class="user-mention">@chunkeymonkey</a>) and I helped each other solved many of the problems.</p>
+
+<h3>
+<a name="what-did-i-learn" class="anchor" href="#what-did-i-learn"><span class="octicon octicon-link"></span></a>What did I Learn?</h3>
+
+<p>Even though I knew a good bit of the knowledge needed for the projects, I still learned a great amount of things.  For instance, I am going to be using pgadmin and Heroku this summer for some of my research.  I  have already notified my research team and they also believe it is going to be a great asset.  Also, I learned a lot about Java Sessions and the little things it takes to get a database working with code.  This was very useful since the last thing I've done with databases was back in high school during my free time.  As for what to do with the code, I plan on continuing to fix and update it.  I definitely want to fix the phase 3 problem I mentioned before, but I want to get this running on my phone with a great UI instead of something that looks more like it was made for the computer rather than a mobile device.</p>
+        </article>
+      </div>
+    </div>
+    <footer>
+      <div class="owner">
+      <p><a href="https://github.com/KylanRace" class="avatar"><img src="https://avatars3.githubusercontent.com/u/4829961?s=60" width="48" height="48"/></a> <a href="https://github.com/KylanRace">KylanRace</a> maintains <a href="https://github.com/KylanRace/TheRealLargeScale">Thereallargescale</a></p>
+
+
+      </div>
+      <div class="creds">
+        <small>This page generated using <a href="http://pages.github.com/">GitHub Pages</a><br/>theme by <a href="https://twitter.com/jonrohan/">Jon Rohan</a></small>
+      </div>
+    </footer>
+  </div>
+  <div class="current-section">
+    <a href="#top">Scroll to top</a>
+    <a href="https://github.com/KylanRace/TheRealLargeScale/tarball/master" class="tar">tar</a><a href="https://github.com/KylanRace/TheRealLargeScale/zipball/master" class="zip">zip</a><a href="" class="code">source code</a>
+    <p class="name"></p>
+  </div>
+
+  
+</body>
+</html>
